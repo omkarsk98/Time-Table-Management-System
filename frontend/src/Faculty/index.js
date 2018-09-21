@@ -1,34 +1,38 @@
 import React, { Component } from "react";
-import "./App.css";
-import Faculty from "./Faculty";
+import WrappedFacultyChoices from "./FacultyChoices";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 import { Tabs } from "antd";
 const TabPane = Tabs.TabPane;
 
-class App extends Component {
+const alignLeft = {
+  padding: 20,
+  textAlign: "left"
+};
+
+export default class Faculty extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="Faculty" style={alignLeft}>
         <BrowserRouter>
           <Switch>
             <Tabs defaultActiveKey="1">
-              <TabPane tab="Faculty" key="1">
-                <Route path="/faculty" component={Faculty} />
+              <TabPane tab="Subject Choices" key="1">
+                <Route
+                  exact
+                  path="/faculty/choices"
+                  component={WrappedFacultyChoices}
+                />
               </TabPane>
-              <TabPane tab="Student" key="2">
-                Content of Tab Pane 2
+              <TabPane tab="Something1" key="2">
+                Content of Something 1
               </TabPane>
               <TabPane tab="General" key="3">
                 Content of Tab Pane 3
               </TabPane>
             </Tabs>
-            
-            {/* <Route component={Dashboard} /> */}
           </Switch>
         </BrowserRouter>
       </div>
     );
   }
 }
-
-export default App;
