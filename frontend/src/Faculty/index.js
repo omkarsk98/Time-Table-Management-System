@@ -1,38 +1,27 @@
 import React, { Component } from "react";
 import WrappedFacultyChoices from "./FacultyChoices";
-import { Switch, Route, BrowserRouter } from "react-router-dom";
-import { Tabs } from "antd";
-const TabPane = Tabs.TabPane;
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const alignLeft = {
   padding: 20,
+  paddingTop:0,
   textAlign: "left"
 };
 
 export default class Faculty extends Component {
   render() {
     return (
-      <div className="Faculty" style={alignLeft}>
-        <BrowserRouter>
-          <Switch>
-            <Tabs defaultActiveKey="1">
-              <TabPane tab="Subject Choices" key="1">
-                <Route
-                  exact
-                  path="/faculty/choices"
-                  component={WrappedFacultyChoices}
-                />
-              </TabPane>
-              <TabPane tab="Something1" key="2">
-                Content of Something 1
-              </TabPane>
-              <TabPane tab="General" key="3">
-                Content of Tab Pane 3
-              </TabPane>
-            </Tabs>
-          </Switch>
-        </BrowserRouter>
-      </div>
+      <Router>
+        <div style={alignLeft}>
+          <div className="ui menu">
+            <Link to="/faculty/choices">
+              <p className="item">Choices</p>
+            </Link>
+          </div>
+          <hr />
+          <Route path="/faculty/choices" component={WrappedFacultyChoices} />
+        </div>
+      </Router>
     );
   }
 }

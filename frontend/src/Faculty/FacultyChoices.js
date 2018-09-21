@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import "antd/dist/antd.css";
-import { Form, Icon, Input, Button, Checkbox } from "antd";
+import { Form, Input, Button } from "antd";
 
 const FormItem = Form.Item;
 const formDesign = {
@@ -10,11 +10,11 @@ const formDesign = {
 
 const adjustMargin = {
   marginBottom: 0
-}
+};
 
 const choices = {
-  padding: 10,
-}
+  padding: 10
+};
 
 class FacultyChoices extends React.Component {
   handleSubmit = e => {
@@ -72,6 +72,11 @@ class FacultyChoices extends React.Component {
                   { required: false, message: "Please input your choice!" }
                 ]
               })(<Input placeholder="choice 4" type="text" />)}
+            </FormItem>
+            <FormItem>
+              <Button type="success" htmlType="submit">
+                Submit
+              </Button>
             </FormItem>
           </div>
         </Form>
