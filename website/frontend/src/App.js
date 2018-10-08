@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import "./App.css";
 import Faculty from "./Faculty";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import YetToBeDeveloped from "./OtherComponents/YetToBeDeveloped";
+import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
 
 class App extends Component {
   render() {
+    <Redirect to={window.location.pathname} />
     return (
       <div className="App">
         <Router>
@@ -18,7 +20,7 @@ class App extends Component {
               </Link>
             </div>
             <Route exact path="/faculty" component={Faculty} />
-            <Route exact path="/general" component={Faculty} />
+            <Route exact path="/general" component={YetToBeDeveloped} />
           </div>
         </Router>
       </div>
