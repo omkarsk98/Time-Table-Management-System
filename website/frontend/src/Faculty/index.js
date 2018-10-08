@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import WrappedFacultyChoices from "./FacultyChoices";
 import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
 import WrappedLogin from "./Login";
-
+import Notify from "../OtherComponents/Notify";
 
 const alignLeft = {
   padding: 20,
@@ -21,7 +21,8 @@ export default class Faculty extends Component {
     this.setState({
       loggedin: true
     });
-    localStorage.setItem("loggedin",true)
+    localStorage.setItem("loggedin",true);
+    Notify('success','Logged in','You are logged in!');
   };
   componentDidMount() {
     if (localStorage.getItem("loggedin") === "true") {
@@ -29,7 +30,7 @@ export default class Faculty extends Component {
         loggedin: true
       });
     }
-    
+    Notify('success','Logged in','You are logged in!');
   }
 
   render() {

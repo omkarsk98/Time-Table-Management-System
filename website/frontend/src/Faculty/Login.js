@@ -26,6 +26,10 @@ class Login extends React.Component {
 
   render() {
     const { getFieldDecorator } = this.props.form;
+    if (localStorage.getItem("loggedin") === "true") {
+      var usernameValue = localStorage.getItem("username");
+      var passwordValue = localStorage.getItem('password');
+    }
     return (
       <Card>
         <Form onSubmit={this.handleSubmit} className="login-form" style={style}>
@@ -33,7 +37,8 @@ class Login extends React.Component {
             {getFieldDecorator("userName", {
               rules: [
                 { required: true, message: "Please input your username!" }
-              ]
+              ],
+              initialValue: usernameValue,
             })(
               <Input
                 prefix={
@@ -47,7 +52,8 @@ class Login extends React.Component {
             {getFieldDecorator("password", {
               rules: [
                 { required: true, message: "Please input your Password!" }
-              ]
+              ],
+              initialValue: passwordValue,
             })(
               <Input
                 prefix={
