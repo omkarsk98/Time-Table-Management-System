@@ -1,15 +1,24 @@
 import React, { Component } from "react";
+import axios from "axios";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from "react-router-dom";
 import "./App.css";
 import Faculty from "./Faculty";
+import WrappedSignup from "./Faculty/Signup";
+import WrappedCheckOTP from "./Faculty/CheckOTP";
+import WrappedCreateAccount from "./Faculty/CreateAccount";
 import YetToBeDeveloped from "./OtherComponents/YetToBeDeveloped";
-import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
+const server = require("./OtherComponents/serverip");
+
 
 class App extends Component {
-  componentDidUnmount(){
-    localStorage.setItem("notified",false);
+  componentDidUnmount() {
+    localStorage.setItem("notified", false);
   }
   render() {
-    <Redirect to={window.location.pathname} />
     return (
       <div className="App">
         <Router>
@@ -24,6 +33,17 @@ class App extends Component {
             </div>
             <Route exact path="/faculty" component={Faculty} />
             <Route exact path="/general" component={YetToBeDeveloped} />
+            <Route exact path="/faculty/signup" component={WrappedSignup} />
+            <Route
+              exact
+              path="/faculty/create-account"
+              component={WrappedCreateAccount}
+            />
+            <Route
+              exact
+              path="/faculty/check-otp"
+              component={WrappedCheckOTP}
+            />
           </div>
         </Router>
       </div>

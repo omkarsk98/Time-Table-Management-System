@@ -3,6 +3,7 @@ import axios from "axios";
 import { Form, Icon, Input, Button, Card } from "antd";
 import Notify from "../OtherComponents/Notify";
 const server = require("../OtherComponents/serverip");
+const ALIGNCENTER = require("../OtherComponents/AlignCenter");
 
 const FormItem = Form.Item;
 const style = {
@@ -21,7 +22,7 @@ class Login extends React.Component {
             password: values.password
           })
           .then(result => {
-            if(result.status!=200){
+            if(result.status!==200){
               Notify("warning","Network Error","There is a possible network error");
             }
             else
@@ -47,11 +48,12 @@ class Login extends React.Component {
   render() {
     const { getFieldDecorator } = this.props.form;
     if (localStorage.getItem("loggedin") === "true") {
-      var usernameValue = localStorage.getItem("username");
-      var passwordValue = localStorage.getItem("password");
+      // var usernameValue = localStorage.getItem("username");
+      // var passwordValue = localStorage.getItem("password");
     }
     return (
-      <Card>
+      <Card style={ALIGNCENTER}>
+        <h3>Login to your account.</h3>
         <Form onSubmit={this.handleSubmit} className="login-form" style={style}>
           <FormItem>
             {getFieldDecorator("userName", {

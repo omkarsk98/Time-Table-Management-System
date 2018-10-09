@@ -13,7 +13,10 @@
     "ejs": "^2.5.7",
     "express": "^4.16.3",
     "knex": "^0.13.0",
+    "mongodb": "^3.1.6",
+    "mongoose": "^5.3.2",
     "morgan": "^1.9.1",
+    "nodemailer": "^4.6.8",
     "pg": "^7.5.0"
   },
   "description": "undefined",
