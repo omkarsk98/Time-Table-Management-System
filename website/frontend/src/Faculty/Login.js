@@ -1,5 +1,6 @@
 import React from "react";
 import { Form, Icon, Input, Button, Checkbox, Card } from "antd";
+import Notify from "../OtherComponents/Notify";
 
 const FormItem = Form.Item;
 const style = {
@@ -18,6 +19,10 @@ class Login extends React.Component {
           localStorage.setItem("username",values.userName);
           localStorage.setItem("password",values.password);
           this.props.onLogin()
+        }
+        else{
+          console.log("Incorrect");
+          Notify("warning","Incorrect credentials","Your credentials are incorrect.");
         }
         // console.log("Received values of form: ", values);
       }

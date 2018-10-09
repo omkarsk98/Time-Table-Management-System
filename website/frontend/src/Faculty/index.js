@@ -22,7 +22,11 @@ export default class Faculty extends Component {
       loggedin: true
     });
     localStorage.setItem("loggedin",true);
-    Notify('success','Logged in','You are logged in!');
+    localStorage.setItem("notified",false);
+    if(localStorage.getItem("notified") === "false"){
+      Notify('success','Logged in','You are logged in!');
+      localStorage.setItem("notified",true);
+    }
   };
   componentDidMount() {
     if (localStorage.getItem("loggedin") === "true") {
@@ -30,7 +34,6 @@ export default class Faculty extends Component {
         loggedin: true
       });
     }
-    Notify('success','Logged in','You are logged in!');
   }
 
   render() {

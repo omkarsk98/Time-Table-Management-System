@@ -1,6 +1,6 @@
 import React from "react";
 import "antd/dist/antd.css";
-import { Form, Input, Button } from "antd";
+import { Form, Input, Button, DatePicker } from "antd";
 
 const FormItem = Form.Item;
 const formDesign = {
@@ -14,6 +14,10 @@ const adjustMargin = {
 
 const choices = {
   padding: 10
+};
+
+const datepicker = {
+  width: "100%"
 };
 
 class FacultyChoices extends React.Component {
@@ -36,12 +40,22 @@ class FacultyChoices extends React.Component {
           className="login-form"
           style={formDesign}
         >
-          <FormItem label="Employee Id:">
+          <FormItem label="Employee Id:" style={adjustMargin}>
             {getFieldDecorator("employeeId", {
               rules: [
                 { required: true, message: "Please input your employee id!" }
               ]
             })(<Input placeholder="Employee id" type="text" />)}
+          </FormItem>
+          <FormItem label="Date of Joining" style={adjustMargin}>
+            {getFieldDecorator("doj", {
+              rules: [
+                {
+                  required: true,
+                  message: "Please input your date of joining!"
+                }
+              ]
+            })(<DatePicker style={datepicker} />)}
           </FormItem>
           Add your choices in terms of Course Codes.
           <div style={choices}>
@@ -62,19 +76,20 @@ class FacultyChoices extends React.Component {
             <FormItem label="Choice 3" style={adjustMargin}>
               {getFieldDecorator("choice3", {
                 rules: [
-                  { required: false, message: "Please input your choice!" }
+                  { required: true, message: "Please input your choice!" }
                 ]
               })(<Input placeholder="choice 3" type="text" />)}
             </FormItem>
             <FormItem label="Choice 4" style={adjustMargin}>
               {getFieldDecorator("choice4", {
                 rules: [
-                  { required: false, message: "Please input your choice!" }
+                  { required: true, message: "Please input your choice!" }
                 ]
               })(<Input placeholder="choice 4" type="text" />)}
             </FormItem>
-            <FormItem>
-              <Button type="success" htmlType="submit">
+
+            <FormItem style={{ textAlign: "center" }}>
+              <Button type="primary" htmlType="submit">
                 Submit
               </Button>
             </FormItem>
