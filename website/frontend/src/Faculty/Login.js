@@ -48,8 +48,8 @@ class Login extends React.Component {
   render() {
     const { getFieldDecorator } = this.props.form;
     if (localStorage.getItem("loggedin") === "true") {
-      // var usernameValue = localStorage.getItem("username");
-      // var passwordValue = localStorage.getItem("password");
+      var usernameValue = localStorage.getItem("username");
+      var passwordValue = localStorage.getItem("password");
     }
     return (
       <Card style={ALIGNCENTER}>
