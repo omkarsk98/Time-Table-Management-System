@@ -1,0 +1,42 @@
+SCIT
+
+use TimetableManagementSystem;
+
+db.createCollection("Courses");
+
+db.Courses.insert([
+  {"Course Code":"CS1101", "Course Name":"Programming in C","Semester":1,"Number of Sections":10},
+  {"Course Code":"CS 1301", "Course Name":"Computer Organization & Architecture","Semester":3,"Number of Sections":"4/3/3","School":"SCIT", "credit":4},
+  {"Course Code":"CS1302", "Course Name":"Switching Theory & Logic Design","Semester":3,"Number of Sections":"4/3/3","School":"SCIT","credit":4},
+  {"Course Code":"CS1303", "Course Name":"Data Structures","Semester":3,"Number of Sections":"4/3/3","School":"SCIT","lab":"true/true/true","credit":4},
+  {"Course Code":"CS1304", "Course Name":"Object Oriented Programming using Java","Semester":"4/3/3","Number of Sections":3,"School":"SCIT","lab":"true/true/true","credit":4},
+  {"Course Code":"CS1331", "Course Name":"Data Structures Lab","Semester":3,"Number of Sections":"4/3/3","School":"SCIT","credit":1},
+  {"Course Code":"CS1332", "Course Name":"Object Oriented Programming using Java Lab","Semester":3,"Number of Sections":"4/3/3","School":"SCIT","credit":1},
+  {"Course Code":"HS1101", "Course Name":"Value Ethics and Governance","Semester":3,"Number of Sections":"4/3/3","School":"SCIT","credit":2},
+  {"Course Code":"MA1307", "Course Name":"Engineering Mathematics-III","Semester":3,"Number of Sections":"4/3/3","School":"SCIT","credit":3},
+  {"Course Code":"CS1501", "Course Name":"Design & Analysis of Algorithms","Semester":5,"Number of Sections":"4/3/3","School":"SCIT","lab":"true/true/true","credit":4},
+  {"Course Code":"CS1502", "Course Name":"Software Engineering","Semester":5,"Number of Sections":"4/0/0","School":"SCIT","lab":"true/false/false","credit":4},
+  {"Course Code":"CS1502", "Course Name":"Software Engineering and Project Management","Semester":5,"Number of Sections":"0/0/3","School":"SCIT","lab":"false/false/true","credit":4},
+  {"Course Code":"IT1504", "Course Name":"Data Communications","Semester":5,"Number of Sections":"4/3/3","School":"SCIT","lab":"false/true/false","credit":4},
+  {"Course Code":"CS1505", "Course Name":"Automata & Compiler Design","Semester":5,"Number of Sections":"4/0/3","School":"SCIT","lab":"true/false/true","credit":4},
+  {"Course Code":"CS1530", "Course Name":"Design & Analysis of Algorithms Lab","Semester":5,"Number of Sections":"4/3/3","School":"SCIT","credit":1},
+  {"Course Code":"CS1532", "Course Name":"Software Engineering Lab","Semester":5,"Number of Sections":"4/0/0","School":"SCIT","credit":1},
+  {"Course Code":"CS1532", "Course Name":"Software Engineering and Project Management Lab","Semester":5,"Number of Sections":"0/0/3","School":"SCIT","credit":1},
+  {"Course Code":"CS1535", "Course Name":"Automata & Compiler Design Lab","Semester":5,"Number of Sections":"4/0/3","School":"SCIT","credit":1},
+  {"Course Code":"CC1501", "Course Name":"Cryptography and Security","Semester":5,"Number of Sections":"0/3/0","School":"SCIT","credit":4},
+  {"Course Code":"CC1502", "Course Name":"Formal Languages and Automata Theory","Semester":5,"Number of Sections":"0/3/0","School":"SCIT","lab":"false/true/false","credit":4},
+  {"Course Code":"CC1530", "Course Name":"Data Communications Lab","Semester":5,"Number of Sections":"0/3/0","School":"SCIT","credit":1},
+  {"Course Code":"CC1701", "Course Name":"Network Security","Semester":7,"Number of Sections":"0/2/0","School":"SCIT","lab":"false/true/false","credit":4},
+  {"Course Code":"CC1702", "Course Name":"Machine Learning","Semester":7,"Number of Sections":0/2/0,"School":"SCIT","lab":"false/true/false","credit":4},
+  {"Course Code":"CC1730", "Course Name":"Network Security Lab","Semester":7,"Number of Sections":"0/2/0","School":"SCIT","credit":1},
+  {"Course Code":"CC1731", "Course Name":"Machine Learning Lab","Semester":7,"Number of Sections":"0/2/0","School":"SCIT","credit":1},
+  {"Course Code":"CS1701", "Course Name":"Big Data Analytics","Semester":7,"Number of Sections":"3/0/3","School":"SCIT","lab":"true/false/true","credit":4},
+  {"Course Code":"CS1704", "Course Name":"Information Systems Security","Semester":7,"Number of Sections":"3/0/3","School":"SCIT","credit":4},
+  {"Course Code":"CS1730", "Course Name":"Big Data Analytics Lab","Semester":7,"Number of Sections":"3/0/3","School":"SCIT","credit":1},
+])
+
+db.createUser({ 
+  user: "dumper", 
+  pwd: "allow-dumper",
+  roles:[ { role: "readWrite", db: "TimetableManagementSystem" },"dbAdmin"  ]
+})
