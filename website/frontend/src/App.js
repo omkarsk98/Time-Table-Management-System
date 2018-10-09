@@ -5,6 +5,9 @@ import YetToBeDeveloped from "./OtherComponents/YetToBeDeveloped";
 import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
 
 class App extends Component {
+  componentDidUnmount(){
+    localStorage.setItem("notified",false);
+  }
   render() {
     <Redirect to={window.location.pathname} />
     return (

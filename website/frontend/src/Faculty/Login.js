@@ -1,6 +1,8 @@
 import React from "react";
-import { Form, Icon, Input, Button, Checkbox, Card } from "antd";
+import axios from "axios";
+import { Form, Icon, Input, Button, Card } from "antd";
 import Notify from "../OtherComponents/Notify";
+const server = require("../OtherComponents/serverip");
 
 const FormItem = Form.Item;
 const style = {
@@ -8,23 +10,36 @@ const style = {
   paddingRight: 50
 };
 
-
 class Login extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        if(values.userName==="omkarsk" && values.password==="hey"){
-          console.log("Loggedin");
-          localStorage.setItem("username",values.userName);
-          localStorage.setItem("password",values.password);
-          this.props.onLogin()
-        }
-        else{
-          console.log("Incorrect");
-          Notify("warning","Incorrect credentials","Your credentials are incorrect.");
-        }
-        // console.log("Received values of form: ", values);
+        axios
+          .post("http://" + server.ip + ":" + server.port + "/login", {
+            username: values.userName,
+            password: values.password
+          })
+          .then(result => {
+            if(result.status!=200){
+              Notify("warning","Network Error","There is a possible network error");
+            }
+            else
+              return result.data;
+          })
+          .then(result => {
+            if (result === "authorized") {
+              localStorage.setItem("username", values.userName);
+              localStorage.setItem("password", values.password);
+              this.props.onLogin();
+            }
+            else{
+              Notify("warning","Incorrect credentials","Your credentials are incorrect.");
+            }
+          })
+          .catch(err => {
+            console.log(err);
+          });
       }
     });
   };
@@ -33,7 +48,7 @@ class Login extends React.Component {
     const { getFieldDecorator } = this.props.form;
     if (localStorage.getItem("loggedin") === "true") {
       var usernameValue = localStorage.getItem("username");
-      var passwordValue = localStorage.getItem('password');
+      var passwordValue = localStorage.getItem("password");
     }
     return (
       <Card>
@@ -43,7 +58,7 @@ class Login extends React.Component {
               rules: [
                 { required: true, message: "Please input your username!" }
               ],
-              initialValue: usernameValue,
+              initialValue: usernameValue
             })(
               <Input
                 prefix={
@@ -58,7 +73,7 @@ class Login extends React.Component {
               rules: [
                 { required: true, message: "Please input your Password!" }
               ],
-              initialValue: passwordValue,
+              initialValue: passwordValue
             })(
               <Input
                 prefix={

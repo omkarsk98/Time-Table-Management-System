@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import WrappedFacultyChoices from "./FacultyChoices";
-import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import WrappedLogin from "./Login";
 import Notify from "../OtherComponents/Notify";
 

@@ -1,4 +1,4 @@
-import { Button, notification } from 'antd';
+import { notification } from 'antd';
 
 const Notify = (type,message,desc) => {
   notification[type]({
