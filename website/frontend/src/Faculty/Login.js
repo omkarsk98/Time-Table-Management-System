@@ -12,8 +12,15 @@ const style = {
 };
 
 class Login extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      loading:""
+    }
+  }
   handleSubmit = e => {
     e.preventDefault();
+    this.setState({loading:"Please wait while it is loading."});
     this.props.form.validateFields((err, values) => {
       if (!err) {
         axios
@@ -104,6 +111,7 @@ class Login extends React.Component {
             {/* Or <a href="">register now!</a> */}
           </FormItem>
         </Form>
+        {this.state.loading}
       </Card>
     );
   }

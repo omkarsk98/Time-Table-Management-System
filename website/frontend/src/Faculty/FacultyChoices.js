@@ -21,8 +21,15 @@ const datepicker = {
 };
 
 class FacultyChoices extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      loading:""
+    }
+  }
   handleSubmit = e => {
     e.preventDefault();
+    this.setState({loading:"Please wait while it is loading."});
     this.props.form.validateFields((err, values) => {
       if (!err) {
         // console.log("Received values of form: ", values);
@@ -95,6 +102,7 @@ class FacultyChoices extends React.Component {
             </FormItem>
           </div>
         </Form>
+        {this.state.loading}
       </div>
     );
   }

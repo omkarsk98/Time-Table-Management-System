@@ -9,8 +9,15 @@ const style = {
 };
 
 class CreateAccount extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      loading:""
+    }
+  }
   handleSubmit = e => {
     e.preventDefault();
+    this.setState({loading:"Please wait while it is loading."});
     this.props.form.validateFields((err, values) => {
       if(!err){
         this.props.onCreateAccount(values);
@@ -63,6 +70,7 @@ class CreateAccount extends React.Component {
             </Button>
           </FormItem>
         </Form>
+        {this.state.loading}
       </Card>
     );
   }

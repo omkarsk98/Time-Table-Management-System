@@ -9,7 +9,14 @@ const style = {
 };
 
 class CheckOTP extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      loading:""
+    }
+  }
   handleSubmit = e => {
+    this.setState({loading:"Please wait while it is loading."});
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
@@ -47,6 +54,7 @@ class CheckOTP extends React.Component {
             {/* Or <a href="">register now!</a> */}
           </FormItem>
         </Form>
+        {this.state.loading}
       </Card>
     );
   }

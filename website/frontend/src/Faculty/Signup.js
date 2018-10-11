@@ -8,8 +8,15 @@ const style = {
 };
 
 class Signup extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      loading:""
+    }
+  }
   handleSubmit = e => {
     e.preventDefault();
+    this.setState({loading:"Please wait while it is loading."});
     this.props.form.validateFields((err, values) => {
       if (!err) {
         this.props.onSignup(values.email);
@@ -53,6 +60,7 @@ class Signup extends React.Component {
               Get OTP
             </Button>
           </FormItem>
+          {this.state.loading}
           <br/>
           <p>Already have an account? Login directly.</p>
           <FormItem>
