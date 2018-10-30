@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
 import {
   BrowserRouter as Router,
   Route,
@@ -7,11 +6,11 @@ import {
 } from "react-router-dom";
 import "./App.css";
 import Faculty from "./Faculty";
+import TimeTables from './TimeTables';
 import WrappedSignup from "./Faculty/Signup";
 import WrappedCheckOTP from "./Faculty/CheckOTP";
 import WrappedCreateAccount from "./Faculty/CreateAccount";
 import YetToBeDeveloped from "./OtherComponents/YetToBeDeveloped";
-const server = require("./OtherComponents/serverip");
 
 
 class App extends Component {
@@ -30,8 +29,12 @@ class App extends Component {
               <Link to="/general">
                 <p className="item">General</p>
               </Link>
+              <Link to="/time-tables">
+                <p className="item">Time Tables</p>
+              </Link>
             </div>
             <Route exact path="/faculty" component={Faculty} />
+            <Route exact path="/time-tables" component={TimeTables} />
             <Route exact path="/general" component={YetToBeDeveloped} />
             <Route exact path="/faculty/signup" component={WrappedSignup} />
             <Route
