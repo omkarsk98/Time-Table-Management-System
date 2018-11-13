@@ -10,7 +10,7 @@ router.post("/", function(req, res, next) {
     res.status(200).send("data required");
   else {
     MongoClient.connect(
-      "mongodb://system:galtise@pass1!@ds139960.mlab.com:39960/timetablemanagementsystem",
+      "mongodb://server:secretpass1!@ds139960.mlab.com:39960/timetablemanagementsystem",
       (err, client) => {
         // ... do something here
         if (err) return console.log(err);
