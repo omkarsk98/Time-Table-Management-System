@@ -42,7 +42,7 @@ export default class Faculty extends Component {
     // send mail
     localStorage.setItem("mail",email)
     axios
-      .post("http://" + server.ip + ":" + server.port + "/signup", {
+      .post("http://" + '13.58.158.49' + ":" + '80' + "/signup", {
         email: email
       })
       .then(result => {
@@ -93,6 +93,7 @@ export default class Faculty extends Component {
     // console.log("request to create an account.");
     axios
       .post("http://" + server.ip + ":" + server.port + "/create-account", {
+        mail: localStorage.getItem("mail"),
         username: data.username,
         password: data.password
       })

@@ -15,11 +15,24 @@ router.post("/", function(req, res, next) {
         // ... do something here
         if (err) return console.log(err);
         db = client.db("timetablemanagementsystem");
-        db.collection('accounts').insertOne(req.body, (err, result) => {
-          if (err) return console.log(err)
-          // console.log('saved to database')
-          // res.redirect('/')
-        })
+        var old = {
+          "Email": req.body.mail
+        };
+        var newValues = { $set: { "username": req.body.username,"password":req.body.password } };
+        db.collection("Teachers").updateOne(old, newValues, (err, result) => {
+          if (err) return console.log("Error",err);
+          res.status(200).send("Updated");
+          console.log("Number of updates:",result.result.nModified);
+          console.log("1 document updated");
+          // db.close();
+        });
+
+
+        // db.collection('accounts').insertOne(req.body, (err, result) => {
+        //   if (err) return console.log(err)
+        //   // console.log('saved to database')
+        //   // res.redirect('/')
+        // })
       }
     );
     res.status(200).send("ok");

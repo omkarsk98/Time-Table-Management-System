@@ -4,6 +4,7 @@ const MongoClient = require("mongodb").MongoClient;
 var db;
 
 router.post("/", function(req, res, next) {
+  console.log("Email:",req.body.mail);
   // console.log("Got request");
   if (
     !req.body.id ||
@@ -29,15 +30,15 @@ router.post("/", function(req, res, next) {
         if (err) return console.log(err);
         db = client.db("timetablemanagementsystem");
         var old = {
-          Email: req.body.mail
+          "Email": req.body.mail
         };
-        var newValues = { $set: { pref: choices } };
-        db.collection("accounts").updateOne(old, newValues, (err, res) => {
-          if (err) throw err;
+        var newValues = { $set: { "pref": choices } };
+        db.collection("Teachers").updateOne(old, newValues, (err, result) => {
+          if (err) return console.log("Error",err);
           res.status(200).send("Updated");
-          console.log(res.result.nModified);
+          console.log("Number of updates:",result.result.nModified);
           console.log("1 document updated");
-          db.close();
+          // db.close();
         });
       }
     );

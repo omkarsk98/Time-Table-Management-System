@@ -17,7 +17,7 @@ router.post('/', function(req, res, next) {
         if (err) return console.log(err);
         db = client.db("timetablemanagementsystem");
         var query = { $and:[{username: req.body.username},{password:req.body.password}] };
-        db.collection('accounts').find(query).toArray(function (err, result){
+        db.collection('Teachers').find(query).toArray(function (err, result){
           if (err) return console.log("Error",err);
           if(result.length>0){
             // console.log("Result present.");
@@ -25,7 +25,7 @@ router.post('/', function(req, res, next) {
           }            
           else
             res.status(200).send('unauthorized');
-          db.close();
+          // db.close();
           // console.log(result);
         })
       }
