@@ -98,11 +98,11 @@ export default class Faculty extends Component {
         password: data.password
       })
       .then(result => {
-        if (result.status !== 200) {
+        if (result.status === 204 && result.data==="Not Registered") {
           Notify(
             "warning",
-            "Network Error",
-            "There is a possible network error"
+            "Not Registered",
+            "Given Mail id not found. Please use your offical email id ending with jaipur.manipal.edu"
           );
         } else if (result.data === "data required")
           Notify("warning", "Data Missing", "Some input field is missing.");

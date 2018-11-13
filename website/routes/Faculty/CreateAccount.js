@@ -10,7 +10,7 @@ router.post("/", function(req, res, next) {
     res.status(200).send("data required");
   else {
     MongoClient.connect(
-      "mongodb://system:tmsproject1!@ds139960.mlab.com:39960/timetablemanagementsystem",
+      "mongodb://system:galtise@pass1!@ds139960.mlab.com:39960/timetablemanagementsystem",
       (err, client) => {
         // ... do something here
         if (err) return console.log(err);
@@ -22,6 +22,8 @@ router.post("/", function(req, res, next) {
         db.collection("Teachers").updateOne(old, newValues, (err, result) => {
           if (err) return console.log("Error",err);
           res.status(200).send("Updated");
+          if(result.result.nModified===0)
+            res.status(204).send("Not Registered");
           console.log("Number of updates:",result.result.nModified);
           console.log("1 document updated");
           // db.close();

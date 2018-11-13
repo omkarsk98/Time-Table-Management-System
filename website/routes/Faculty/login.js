@@ -12,7 +12,7 @@ router.post('/', function(req, res, next) {
   
   else{
     MongoClient.connect(
-      "mongodb://system:tmsproject1!@ds139960.mlab.com:39960/timetablemanagementsystem",
+      "mongodb://system:galtise@pass1!@ds139960.mlab.com:39960/timetablemanagementsystem",
       (err, client) => {
         if (err) return console.log(err);
         db = client.db("timetablemanagementsystem");

@@ -31,7 +31,7 @@ class Signup extends React.Component {
     return (
       <Card>
         <p>
-          We will send an otp do the emailid you enter.
+          Please use your <b>official email id</b> ending with <b>@jaipur.manipal.edu</b>.
           <br />
           If the otp is valid, you can set your username and password.
         </p>
