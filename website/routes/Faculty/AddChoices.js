@@ -18,10 +18,10 @@ router.post("/", function(req, res, next) {
   if (!req.body.mail) res.status(422).send("email id required");
   else {
     var choices = {
-      1: choice1,
-      2: choice2,
-      3: choice3,
-      4: choice4
+      1: req.body.choice1,
+      2: req.body.choice2,
+      3: req.body.choice3,
+      4: req.body.choice4
     };
     MongoClient.connect(
       "mongodb://system:tmsproject1!@ds139960.mlab.com:39960/timetablemanagementsystem",

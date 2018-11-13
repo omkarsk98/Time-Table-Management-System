@@ -38,7 +38,7 @@ class FacultyChoices extends React.Component {
         console.log(values);
         axios
           .post("http://" + server.ip + ":" + server.port + "/add-choices", {
-            email: localStorage.getItem("mail"),
+            mail: localStorage.getItem("mail"),
             id: values.employeeId,
             doj: values.doj,
             choice1: values.choice1,
