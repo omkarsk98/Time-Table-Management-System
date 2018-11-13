@@ -40,6 +40,7 @@ export default class Faculty extends Component {
   };
   onsignupemail = email => {
     // send mail
+    localStorage.setItem("mail",email)
     axios
       .post("http://" + server.ip + ":" + server.port + "/signup", {
         email: email

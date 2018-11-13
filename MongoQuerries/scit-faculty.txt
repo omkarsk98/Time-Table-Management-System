@@ -1,6 +1,6 @@
 		use TimetableManagementSystem;
 		db.createCollection("Teachers");
-		db.insert([{
+		db.Teachers.insert([{
 			
 			"Name":"Akhilesh Kumar Sharma ",
 			"Designation":"Associate Professor  ",
@@ -701,3 +701,29 @@
 			"Employee-id":""
 		},
 ])
+
+
+
+use admin
+db.createUser(
+   {
+     user: "server",
+     pwd: "server@pass",
+     roles:
+       [
+         { role: "readWrite", db: "TimetableManagementSystem" },
+         "clusterAdmin"
+       ]
+   }
+)
+
+
+db.Teachers.insert([{	
+	"Name":"Omkar Kulkarni",
+	"Designation":"Professor",
+	"School":1/0/0,
+	"Email":"omkarsk98@gmail.com",
+	"Mobile No":8806849643,
+	"Extn No":"",
+	"Employee-id":""
+}])

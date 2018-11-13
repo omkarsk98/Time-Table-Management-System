@@ -25,6 +25,7 @@ router.post('/', function(req, res, next) {
           }            
           else
             res.status(200).send('unauthorized');
+          db.close();
           // console.log(result);
         })
       }
@@ -36,3 +37,5 @@ router.post('/', function(req, res, next) {
 });
 
 module.exports = router;
+
+// db.accounts.find({username: 'omkarsk98'},{password:'check'})

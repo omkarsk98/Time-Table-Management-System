@@ -15,6 +15,7 @@ const login = require('./routes/Faculty/login');
 const ip = require('./routes/Faculty/ip');
 const signup = require('./routes/Faculty/signup');
 const createAccount = require('./routes/Faculty/CreateAccount');
+const addChoices = require('./routes/Faculty/AddChoices');
 
 const app = express();
 app.use(express.static(__dirname+'/frontend/build/'))
@@ -38,6 +39,7 @@ app.use('/login',login);
 app.use('/ip',ip);
 app.use('/signup',signup);
 app.use('/create-account',createAccount);
+app.use('/add-choices',addChoices);
 
 // app.use('/', index);
 // app.use('/todos', todos);
