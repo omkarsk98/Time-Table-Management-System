@@ -8,10 +8,10 @@ router.post("/", function(req, res, next) {
   if (
     !req.body.id ||
     !req.body.doj ||
-    !choice1 ||
-    !choice2 ||
-    !choice3 ||
-    !choice4
+    !req.body.choice1 ||
+    !req.body.choice2 ||
+    !req.body.choice3 ||
+    !req.body.choice4
   )
     res.status(422).send("data required");
 
