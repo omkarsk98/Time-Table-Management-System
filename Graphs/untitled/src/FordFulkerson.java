@@ -45,6 +45,14 @@ public class FordFulkerson {
             }
         }
     }
+    
+    public void checkForUnallocation(Vertex source){
+        for (Edge v: graph.getAdjacenciesList(source)){
+            if (v.getResidualCapacity(source)!=v.getCapacity()){
+                System.out.println("The subject: "+v.getTargetVertex()+" doesn't have the desired teachers yet:" +v.getResidualCapacity(source)+"/"+v.getCapacity());
+            }
+        }
+    }
 
     public boolean getInCut(int index){
         return hasPathinResidualGraph[index];
