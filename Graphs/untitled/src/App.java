@@ -80,6 +80,8 @@ public class App{
         ffed.printMaxFlowPaths(subject1,vertex0,vertext);
         ffed.printMaxFlowPaths(subject2,vertex0,vertext);
         ffed.printMaxFlowPaths(subject3,vertex0,vertext);
+        
+         ffed.checkForUnallocation(vertex0);
 
         /*
         System.out.println("Incut ");
