@@ -1,0 +1,28 @@
+S.R.,Name,Designation ,Dept.,Ext. No.,Hours,S1,S2,S3,Lab1,Lab2,eof
+23,Satish Chandra Kulhari,HoD,CSE,3,6,ACD,NA,NA,ACD lab,NA,0
+24,Roheet Bhatnagar,Professor,CSE,234,6,DS,NA,NA,DS lab,NA,0
+25,Sandeep Joshi,Professor,CSE,258,6,ACD,NA,NA,ACD lab,NA,0
+26,Satyaprakash Gupta ,Professor,CSE,404,6,OOPJ,NA,NA,OOPJ lab,NA,0
+27,Umashankar Rawat,Professor,CSE,435,7,DCOM,ADS,NA,NA,NA,0
+17,Sunita Singhal,Associate Professor,CSE,4,9,ACD,IR,NA,ACD lab,NA,0
+18,Pooja Sharma ,Associate Professor,CSE,231,9,DAA,DIP,NA,DAA lab,NA,0
+19,Sandeep Chaurasia,Associate Professor,CSE,504,6,OOPJ,NA,NA,OOPJ lab,NA,0
+20,Prakash Ramani,Associate Professor,CSE,583,7,STLD,DIP,NA,NA,NA,0
+21,Jyoti Grover,Associate Professor,CSE,664,6,ACD,NA,NA,ACD lab,NA,0
+22,Arjun Singh ,Associate Professor,CSE,694,10,DAA,STLD,NA,DAA lab,NA,0
+1,Jaya Krishna,Assistant Professor,CSE,200,10,COA,OOPJ,NA,OOPJ lab,NA,0
+2,Priyank Singh Hada,Assistant Professor,CSE,213,9,DS,ACN,NA,DS lab,NA,0
+3,Mahesh Jangid,Assistant Professor,CSE,279,12,DCOM,COA,ISS,NA,NA,0
+4,Manu Srivastava,Assistant Professor,CSE,325,10,DCOM,ACN,RTS,NA,NA,0
+5,Ankit Srivastava,Assistant Professor,CSE,345,10,DCOM,BDA,NA,BDA lab,NA,0
+6,Satyabrata Roy,Assistant Professor,CSE,434,12,DS,BDA,NA,DS lab,BDA lab,0
+7,Shikha Kabra,Assistant Professor,CSE,438,12,COA,ISS,ISS,NA,NA,0
+8,Arvind Kumar  Pal,Assistant Professor,CSE,570,12,OOPJ,BDA,NA,OOPJ lab,BDA lab,0
+9,Ashish Dadhich,Assistant Professor,CSE,573,10,DAA,COA,NA,DAA lab,NA,0
+10,Tarun Jain ,Assistant Professor,CSE,574,9,SE,LSSP,NA,SE lab,NA,0
+11,Anubha Parashar,Assistant Professor,CSE,660,3,ML,NA,NA,NA,NA,0
+12,Anita Shrotriya ,Assistant Professor,CSE,661,9,SE,PDC,NA,SE lab,NA,0
+13,Nitesh Pradhan ,Assistant Professor,CSE,705,10,DAA,STLD,NA,DAA lab,NA,0
+14,Saket Acharya,Assistant Professor,CSE,708,6,SE,NA,NA,SE lab,NA,0
+15,Rishi Gupta,Assistant Professor,CSE,714,10,SE,STLD,NA,SE lab,NA,0
+16,Harish Sharma,Assistant Professor,CSE,716,6,DS,NA,NA,DS lab,NA,0

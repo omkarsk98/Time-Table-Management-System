@@ -113,12 +113,12 @@ bool checkPrevYears(vector<vector<string> > vec,string choice,int pos){
 	return false;
 }
 bool checkHours(int pos,vector<vector<string> > &subj,vector<vector<string> > &teachList,int prof){
-	int totalTime=(stoi(teachList[prof][5],&sz) + stoi(subj[pos][4],&sz)+ stoi(subj[pos][6],&sz) * 2);
-	if(teachList[prof][2]=="Assistant Professor" && totalTime> 18)
+	int totalTime=(stoi(teachList[prof][5]) + stoi(subj[pos][4])+ stoi(subj[pos][6]) * 2);
+	if(teachList[prof][2]=="Assistant Professor" && totalTime> 12)
 		return false;
-	else if(teachList[prof][2]=="Associate Professor" && totalTime> 14)
+	else if(teachList[prof][2]=="Associate Professor" && totalTime> 10)
 		return false;
-	else if((teachList[prof][2]=="Professor" || teachList[prof][2]=="HoD")  && totalTime> 10)
+	else if((teachList[prof][2]=="Professor" || teachList[prof][2]=="HoD")  && totalTime> 8)
 		return false;
 	return true;
 }
@@ -133,45 +133,46 @@ int allocatingSubj(string choice,vector<vector<string> > &subj,vector<vector<str
 			int pos2=searchVect(subj,subj[pos][3]+" lab",3);
 			if(teachList[prof][9]!="NA"){
 				teachList[prof][10]=subj[pos2][3];
-				subj[pos][7]=stoi(subj[pos][7],&sz)+1;
+				subj[pos2][7]=to_string(stoi(subj[pos2][7])+1);
 			}
 			else{
 				teachList[prof][9]=subj[pos2][3];
-				subj[pos][7]=stoi(subj[pos][7],&sz)+1;
+				subj[pos2][7]=to_string(stoi(subj[pos2][7])+1);
 			}
-			teachList[prof][5]+=2;
+			teachList[prof][5]=to_string(stoi(teachList[prof][5])+2);
 		}
 		if(teachList[prof][6]!="NA"){
 			if(teachList[prof][7]!="NA"){
 				teachList[prof][8]=subj[pos][3];
-				subj[pos][7]=stoi(subj[pos][7],&sz)+1;
+				subj[pos][7]=to_string(stoi(subj[pos][7])+1);
 			}
 			else{
 				teachList[prof][7]=subj[pos][3];
-				subj[pos][7]=stoi(subj[pos][7],&sz)+1;
+				subj[pos][7]=to_string(stoi(subj[pos][7])+1);
 			}
 		}
 		else{
 			teachList[prof][6]=subj[pos][3];
-			subj[pos][7]=stoi(subj[pos][7],&sz)+1;
+			subj[pos][7]=to_string(stoi(subj[pos][7])+1);
 		}
-		teachList[prof][5]=stoi(subj[pos][4],&sz) + stoi(teachList[prof][5],&sz);
+		
+		teachList[prof][5]=to_string(stoi(subj[pos][4]) + stoi(teachList[prof][5]));
 	}
 	return 1;
 }
 int main()
 {
 	// Creating an object of CSVWriter
-	CSVReader reader("before/cse.csv");
+	CSVReader reader("cse.csv");
 	
 	// Get the data from CSV File
 	vector<vector<string> > teach = reader.getData();
 
 
-	CSVReader reader2("before/csessubj.csv");
+	CSVReader reader2("csessubj.csv");
 	vector<vector<string> > subjectList = reader2.getData();
 	
-	CSVReader reader3("before/choicesList.csv");
+	CSVReader reader3("choicesList.csv");
 	vector<vector<string> > choices = reader3.getData();
 		
 	
@@ -195,12 +196,11 @@ int main()
 			}
 		}
 	}
-	
 	sort(asstProf.begin(), asstProf.end(),sortcol); 
 	sort(assocProf.begin(), assocProf.end(),sortcol); 
 	sort(Prof.begin(), Prof.end(),sortcol); 
 	
-	CSVWriter writer("after/teachfinal.csv");
+	CSVWriter writer("teachfinal.csv");
 	writer.addDatainRow(teach[0].begin(), teach[0].end());
 	int posHoD=searchVect(teach,"HoD",2);
 	writer.addDatainRow(teach[posHoD].begin(), teach[posHoD].end());
@@ -265,7 +265,7 @@ int main()
 	}
 
 	
-	CSVWriter writer2("after/subjectsfinal.csv");
+	CSVWriter writer2("subjectsfinal.csv");
 	for(int i=0;i<subjectList.size();i++){
 		writer2.addDatainRow(subjectList[i].begin(), subjectList[i].end());
 	}
